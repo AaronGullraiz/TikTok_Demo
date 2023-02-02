@@ -10,6 +10,9 @@ public class VideoPanelHandler : MonoBehaviour
     public RawImage videoPlayerImage;
 
     public GameObject videoImage;
+    public VideoData data;
+
+    public Initializer parent;
 
     bool likeButtonStatus = false, isVideoPlaying = false;
 
@@ -20,6 +23,17 @@ public class VideoPanelHandler : MonoBehaviour
         RenderTexture t = new RenderTexture(Screen.width, 1750, 0);
         vp.targetTexture = t;
         videoPlayerImage.texture = t;
+
+        likeButtonStatus = data.isLiked;
+        if (!likeButtonStatus)
+        {
+            likeButton.color = Color.black;
+        }
+        else
+        {
+            likeButton.color = Color.white;
+        }
+        vp.clip = data.video;
     }
 
     private void Vp_loopPointReached(VideoPlayer source)
@@ -40,6 +54,7 @@ public class VideoPanelHandler : MonoBehaviour
             likeButton.color = Color.white;
         }
         likeButtonStatus = !likeButtonStatus;
+        data.isLiked = likeButtonStatus;
     }
 
     public void VideoButtonClicked()
@@ -58,5 +73,14 @@ public class VideoPanelHandler : MonoBehaviour
             videoImage.SetActive(false);
         }
         isVideoPlaying = !isVideoPlaying;
+    }
+
+    public void ShareVideoClicked()
+    {
+        parent.ShareClicked();
+    }
+    public void CommentClicked()
+    {
+        parent.CommentClicked();
     }
 }

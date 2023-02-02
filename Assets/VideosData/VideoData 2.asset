@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35c36d1b61418af46ae17a10c36f8513, type: 3}
+  m_Name: VideoData 2
+  m_EditorClassIdentifier: 
+  video: {fileID: 32900000, guid: e71739dae56fdd24cb4e903fe786f4c2, type: 3}
+  isLiked: 1
+  comments:
+  - name: Maimoon
+    comment: Oh sexy Lady!
+  - name: Reshu
+    comment: Babe
