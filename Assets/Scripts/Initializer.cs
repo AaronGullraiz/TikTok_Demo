@@ -10,6 +10,8 @@ public class Initializer : MonoBehaviour
 
     public VideoData[] videoDatas;
 
+    public ScrollRect scroller;
+
     [SerializeField]
     private GameObject shareVideoObject, commentObject;
 
@@ -45,17 +47,17 @@ public class Initializer : MonoBehaviour
         shareVideoObject.SetActive(true);
     }
 
-    public void CommentClicked()
+    public void CommentClicked(VideoData vData)
     {
         for (int i = 0; i < commentsPlaceholder.childCount; i++)
         {
-            Destroy(commentsPlaceholder.GetChild(0));
+            Destroy(commentsPlaceholder.GetChild(i).gameObject);
         }
 
-        for (int i = 0; i < videoDatas[currentPlayingVideo].comments.Count; i++)
+        for (int i = 0; i < vData.comments.Count; i++)
         {
             var ob = (Instantiate(commentPrefab, commentsPlaceholder) as GameObject).GetComponent<CommentHandler>();
-            ob.SetComment(videoDatas[currentPlayingVideo].comments[i]);
+            ob.SetComment(vData.comments[i]);
         }
 
         commentObject.SetActive(true);

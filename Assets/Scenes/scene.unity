@@ -1881,5 +1881,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 09c49ee463c676644848c3852a39f64b, type: 2}
   - {fileID: 11400000, guid: a696fc0945c7cf048bd6e7329f35ea52, type: 2}
   - {fileID: 11400000, guid: 3775c8bcd4bf45b4daca73cc93ae102b, type: 2}
+  scroller: {fileID: 368987201}
   shareVideoObject: {fileID: 1183950181}
   commentObject: {fileID: 1181863231}

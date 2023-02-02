@@ -44,7 +44,6 @@ public class VideoPanelHandler : MonoBehaviour
 
     public void LikeButtonClicked()
     {
-        Debug.Log("Video: "+isVideoPlaying);
         if (likeButtonStatus)
         {
             likeButton.color = Color.black;
@@ -81,6 +80,6 @@ public class VideoPanelHandler : MonoBehaviour
     }
     public void CommentClicked()
     {
-        parent.CommentClicked();
+        parent.CommentClicked(data);
     }
 }
