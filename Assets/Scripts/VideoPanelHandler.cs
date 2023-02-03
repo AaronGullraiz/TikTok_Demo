@@ -82,4 +82,20 @@ public class VideoPanelHandler : MonoBehaviour
     {
         parent.CommentClicked(data);
     }
+
+    public void OnShowPage()
+    {
+        if (!vp.isPlaying)
+        {
+            VideoButtonClicked();
+        }
+    }
+
+    public void OnHidePage()
+    {
+        if (vp.isPlaying)
+        {
+            VideoButtonClicked();
+        }
+    }
 }

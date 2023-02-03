@@ -15,6 +15,8 @@ public class Initializer : MonoBehaviour
     [SerializeField]
     private GameObject shareVideoObject, commentObject;
 
+    private VideoData currentVideoData;
+
     private int currentPlayingVideo = 0;
 
     void Start()
@@ -24,7 +26,13 @@ public class Initializer : MonoBehaviour
             var ob = (Instantiate(videoGroup, videoObjectPlaceholder)as GameObject).GetComponent<VideoPanelHandler>();
             ob.data = videoDatas[i];
             ob.parent = this;
+            if(i == 0)
+            {
+                ob.VideoButtonClicked();
+            }
         }
+
+
     }
 
     public void TextFieldEditEnd(InputField input)
@@ -35,7 +43,7 @@ public class Initializer : MonoBehaviour
             var c = new CommentData();
             c.name = "Me";
             c.comment = comment;
-            videoDatas[currentPlayingVideo].comments.Add(c);
+            currentVideoData.comments.Add(c);
             var ob = (Instantiate(commentPrefab, commentsPlaceholder) as GameObject).GetComponent<CommentHandler>();
             ob.SetComment(c);
         }
@@ -49,6 +57,8 @@ public class Initializer : MonoBehaviour
 
     public void CommentClicked(VideoData vData)
     {
+        currentVideoData = vData;
+
         for (int i = 0; i < commentsPlaceholder.childCount; i++)
         {
             Destroy(commentsPlaceholder.GetChild(i).gameObject);
